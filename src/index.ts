@@ -33,7 +33,7 @@ interface MetaData {
 
 export type NameFunction = (table: string, schema?: string) => string;
 export type Operation = "insert" | "select" | "update" | "delete";
-type TableFilterFunction = (table: Table) => boolean;
+export type TableFilterFunction = (table: Table) => boolean;
 
 export interface Options {
   url?: string;
