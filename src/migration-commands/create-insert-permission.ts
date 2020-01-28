@@ -6,7 +6,7 @@ export default function createInsertPermission(
   {
     role,
     columns = [],
-    filter,
+    filter = {},
     set = { organizationId: "X-Hasura-Organization-Id" },
   }: {
     role: string;
