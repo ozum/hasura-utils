@@ -8,7 +8,7 @@ export default function createSelectPermission(
     allowAggregations = false,
     columns = [],
     computedFields,
-    filter = { organization_id: { _eq: "X-Hasura-Organization-Id" } },
+    filter = { organizationId: { _eq: "X-Hasura-Organization-Id" } },
     limit = 10000,
   }: {
     role: string;

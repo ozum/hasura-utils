@@ -6,7 +6,7 @@ export default function createUpdatePermission(
   {
     role,
     columns = [],
-    filter = { organization_id: { _eq: "X-Hasura-Organization-Id" } },
+    filter = { organizationId: { _eq: "X-Hasura-Organization-Id" } },
     set,
   }: {
     role: string;
