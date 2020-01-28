@@ -1,3 +1,5 @@
+import omitBy from "lodash.omitby";
+
 export default function createDeletePermission(
   table: string,
   schema = "public",
@@ -14,7 +16,7 @@ export default function createDeletePermission(
     args: {
       role,
       table: { name: table, schema },
-      permission: { filter },
+      permission: omitBy({ filter }, (val: any) => val === undefined),
     },
   };
 }

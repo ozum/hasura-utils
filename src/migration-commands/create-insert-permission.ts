@@ -1,3 +1,5 @@
+import omitBy from "lodash.omitby";
+
 export default function createInsertPermission(
   table: string,
   schema = "public",
@@ -18,7 +20,7 @@ export default function createInsertPermission(
     args: {
       role,
       table: { name: table, schema },
-      permission: { check: filter, set, columns },
+      permission: omitBy({ check: filter, set, columns }, (val: any) => val === undefined),
     },
   };
 }

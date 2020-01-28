@@ -1,3 +1,5 @@
+import omitBy from "lodash.omitby";
+
 export default function createSelectPermission(
   table: string,
   schema = "public",
@@ -22,7 +24,10 @@ export default function createSelectPermission(
     args: {
       role,
       table: { name: table, schema },
-      permission: { allow_aggregations: allowAggregations, columns, computed_fields: computedFields, filter, limit },
+      permission: omitBy(
+        { allow_aggregations: allowAggregations, columns, computed_fields: computedFields, filter, limit },
+        (val: any) => val === undefined
+      ),
     },
   };
 }
