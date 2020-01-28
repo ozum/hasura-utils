@@ -1,0 +1,308 @@
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Account
+    configuration:
+      custom_root_fields:
+        select: accounts
+        select_by_pk: account
+        select_aggregate: accountAggregate
+        insert: addAccounts
+        update: updateAccounts
+        delete: deleteAccounts
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Asset
+    configuration:
+      custom_root_fields:
+        select: assets
+        select_by_pk: asset
+        select_aggregate: assetAggregate
+        insert: addAssets
+        update: updateAssets
+        delete: deleteAssets
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Contact
+    configuration:
+      custom_root_fields:
+        select: contacts
+        select_by_pk: contact
+        select_aggregate: contactAggregate
+        insert: addContacts
+        update: updateContacts
+        delete: deleteContacts
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Country
+    configuration:
+      custom_root_fields:
+        select: countries
+        select_by_pk: country
+        select_aggregate: countryAggregate
+        insert: addCountries
+        update: updateCountries
+        delete: deleteCountries
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Currency
+    configuration:
+      custom_root_fields:
+        select: currencies
+        select_by_pk: currency
+        select_aggregate: currencyAggregate
+        insert: addCurrencies
+        update: updateCurrencies
+        delete: deleteCurrencies
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: ExchangeRateSource
+    configuration:
+      custom_root_fields:
+        select: exchangeRateSources
+        select_by_pk: exchangeRateSource
+        select_aggregate: exchangeRateSourceAggregate
+        insert: addExchangeRateSources
+        update: updateExchangeRateSources
+        delete: deleteExchangeRateSources
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Item
+    configuration:
+      custom_root_fields:
+        select: items
+        select_by_pk: item
+        select_aggregate: itemAggregate
+        insert: addItems
+        update: updateItems
+        delete: deleteItems
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: JobStatus
+    configuration:
+      custom_root_fields:
+        select: jobStatuses
+        select_by_pk: jobStatus
+        select_aggregate: jobStatusAggregate
+        insert: addJobStatuses
+        update: updateJobStatuses
+        delete: deleteJobStatuses
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Language
+    configuration:
+      custom_root_fields:
+        select: languages
+        select_by_pk: language
+        select_aggregate: languageAggregate
+        insert: addLanguages
+        update: updateLanguages
+        delete: deleteLanguages
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Location
+    configuration:
+      custom_root_fields:
+        select: locations
+        select_by_pk: location
+        select_aggregate: locationAggregate
+        insert: addLocations
+        update: updateLocations
+        delete: deleteLocations
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: OfficialLanguage
+    configuration:
+      custom_root_fields:
+        select: officialLanguages
+        select_by_pk: officialLanguage
+        select_aggregate: officialLanguageAggregate
+        insert: addOfficialLanguages
+        update: updateOfficialLanguages
+        delete: deleteOfficialLanguages
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Organization
+    configuration:
+      custom_root_fields:
+        select: organizations
+        select_by_pk: organization
+        select_aggregate: organizationAggregate
+        insert: addOrganizations
+        update: updateOrganizations
+        delete: deleteOrganizations
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: PriceModifier
+    configuration:
+      custom_root_fields:
+        select: priceModifiers
+        select_by_pk: priceModifier
+        select_aggregate: priceModifierAggregate
+        insert: addPriceModifiers
+        update: updatePriceModifiers
+        delete: deletePriceModifiers
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: PriceModifierName
+    configuration:
+      custom_root_fields:
+        select: priceModifierNames
+        select_by_pk: priceModifierName
+        select_aggregate: priceModifierNameAggregate
+        insert: addPriceModifierNames
+        update: updatePriceModifierNames
+        delete: deletePriceModifierNames
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Product
+    configuration:
+      custom_root_fields:
+        select: products
+        select_by_pk: product
+        select_aggregate: productAggregate
+        insert: addProducts
+        update: updateProducts
+        delete: deleteProducts
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: ProductFamily
+    configuration:
+      custom_root_fields:
+        select: productFamilies
+        select_by_pk: productFamily
+        select_aggregate: productFamilyAggregate
+        insert: addProductFamilies
+        update: updateProductFamilies
+        delete: deleteProductFamilies
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: Region
+    configuration:
+      custom_root_fields:
+        select: regions
+        select_by_pk: region
+        select_aggregate: regionAggregate
+        insert: addRegions
+        update: updateRegions
+        delete: deleteRegions
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: ServiceAppointment
+    configuration:
+      custom_root_fields:
+        select: serviceAppointments
+        select_by_pk: serviceAppointment
+        select_aggregate: serviceAppointmentAggregate
+        insert: addServiceAppointments
+        update: updateServiceAppointments
+        delete: deleteServiceAppointments
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: ServiceResource
+    configuration:
+      custom_root_fields:
+        select: serviceResources
+        select_by_pk: serviceResource
+        select_aggregate: serviceResourceAggregate
+        insert: addServiceResources
+        update: updateServiceResources
+        delete: deleteServiceResources
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: User
+    configuration:
+      custom_root_fields:
+        select: users
+        select_by_pk: user
+        select_aggregate: userAggregate
+        insert: addUsers
+        update: updateUsers
+        delete: deleteUsers
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: WorkOrder
+    configuration:
+      custom_root_fields:
+        select: workOrders
+        select_by_pk: workOrder
+        select_aggregate: workOrderAggregate
+        insert: addWorkOrders
+        update: updateWorkOrders
+        delete: deleteWorkOrders
+- type: track_table
+  version: 2
+  args:
+    table:
+      schema: public
+      name: WorkOrderLineItem
+    configuration:
+      custom_root_fields:
+        select: workOrderLineItems
+        select_by_pk: workOrderLineItem
+        select_aggregate: workOrderLineItemAggregate
+        insert: addWorkOrderLineItems
+        update: updateWorkOrderLineItems
+        delete: deleteWorkOrderLineItems

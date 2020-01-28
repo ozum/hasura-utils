@@ -1,0 +1,2028 @@
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Account
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+        - legalName
+        - description
+        - taxOffice
+        - taxNo
+        - billingAddress
+        - billingPostalCode
+        - billingRegionId
+        - billingMail
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Account
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - name
+        - legalName
+        - description
+        - taxOffice
+        - taxNo
+        - billingAddress
+        - billingPostalCode
+        - billingRegionId
+        - billingMail
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Account
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+        - legalName
+        - description
+        - taxOffice
+        - taxNo
+        - billingAddress
+        - billingPostalCode
+        - billingRegionId
+        - billingMail
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Account
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - name
+        - legalName
+        - description
+        - taxOffice
+        - taxNo
+        - billingAddress
+        - billingPostalCode
+        - billingRegionId
+        - billingMail
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Asset
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - accountId
+        - contactId
+        - productId
+        - productFamilyId
+        - serialNumber
+        - idNumber
+        - name
+        - description
+        - purchaseDate
+        - installDate
+        - locationId
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Asset
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - accountId
+        - contactId
+        - productId
+        - productFamilyId
+        - serialNumber
+        - idNumber
+        - name
+        - description
+        - purchaseDate
+        - installDate
+        - locationId
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Asset
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - accountId
+        - contactId
+        - productId
+        - productFamilyId
+        - serialNumber
+        - idNumber
+        - name
+        - description
+        - purchaseDate
+        - installDate
+        - locationId
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Asset
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - accountId
+        - contactId
+        - productId
+        - productFamilyId
+        - serialNumber
+        - idNumber
+        - name
+        - description
+        - purchaseDate
+        - installDate
+        - locationId
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Contact
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - accountId
+        - name
+        - surname
+        - mail
+        - mobileCountryCode
+        - mobileAreaCode
+        - mobileNumber
+        - phoneCountryCode
+        - phoneAreaCode
+        - phoneNumber
+        - phoneExtension
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Contact
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - accountId
+        - name
+        - surname
+        - mail
+        - mobileCountryCode
+        - mobileAreaCode
+        - mobileNumber
+        - phoneCountryCode
+        - phoneAreaCode
+        - phoneNumber
+        - phoneExtension
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Contact
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - accountId
+        - name
+        - surname
+        - mail
+        - mobileCountryCode
+        - mobileAreaCode
+        - mobileNumber
+        - phoneCountryCode
+        - phoneAreaCode
+        - phoneNumber
+        - phoneExtension
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Contact
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - accountId
+        - name
+        - surname
+        - mail
+        - mobileCountryCode
+        - mobileAreaCode
+        - mobileNumber
+        - phoneCountryCode
+        - phoneAreaCode
+        - phoneNumber
+        - phoneExtension
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Country
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - isoCode3
+        - isoCodeNumeric
+        - name
+        - hasStates
+        - currencyIsoCode
+        - cldrName
+        - capital
+        - continent
+        - trafficPlate
+        - phoneCode
+        - geoNameId
+        - languages
+        - regionCode
+        - regionName
+        - subRegionName
+        - tld
+        - isDeveloped
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Country
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - isoCode3
+        - isoCodeNumeric
+        - name
+        - hasStates
+        - currencyIsoCode
+        - cldrName
+        - capital
+        - continent
+        - trafficPlate
+        - phoneCode
+        - geoNameId
+        - languages
+        - regionCode
+        - regionName
+        - subRegionName
+        - tld
+        - isDeveloped
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Country
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - isoCode3
+        - isoCodeNumeric
+        - name
+        - hasStates
+        - currencyIsoCode
+        - cldrName
+        - capital
+        - continent
+        - trafficPlate
+        - phoneCode
+        - geoNameId
+        - languages
+        - regionCode
+        - regionName
+        - subRegionName
+        - tld
+        - isDeveloped
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Country
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - isoCode3
+        - isoCodeNumeric
+        - name
+        - hasStates
+        - currencyIsoCode
+        - cldrName
+        - capital
+        - continent
+        - trafficPlate
+        - phoneCode
+        - geoNameId
+        - languages
+        - regionCode
+        - regionName
+        - subRegionName
+        - tld
+        - isDeveloped
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Currency
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - isoCodeNumeric
+        - name
+        - symbol
+        - minorUnitName
+        - minorUnitDecimal
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Currency
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - isoCodeNumeric
+        - name
+        - symbol
+        - minorUnitName
+        - minorUnitDecimal
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Currency
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - isoCodeNumeric
+        - name
+        - symbol
+        - minorUnitName
+        - minorUnitDecimal
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Currency
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - isoCodeNumeric
+        - name
+        - symbol
+        - minorUnitName
+        - minorUnitDecimal
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: ExchangeRateSource
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+        - systemName
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: ExchangeRateSource
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+        - systemName
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: ExchangeRateSource
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+        - systemName
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: ExchangeRateSource
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+        - systemName
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Item
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - locationId
+        - productId
+        - quantity
+        - serialNumber
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Item
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - locationId
+        - productId
+        - createdAt
+        - updatedAt
+        - quantity
+        - serialNumber
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Item
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - locationId
+        - productId
+        - quantity
+        - serialNumber
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Item
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - locationId
+        - productId
+        - createdAt
+        - updatedAt
+        - quantity
+        - serialNumber
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: JobStatus
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+        - isCompleted
+        - isCanceled
+        - isWaitingCustomer
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: JobStatus
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - name
+        - isCompleted
+        - isCanceled
+        - isWaitingCustomer
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: JobStatus
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+        - isCompleted
+        - isCanceled
+        - isWaitingCustomer
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: JobStatus
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - name
+        - isCompleted
+        - isCanceled
+        - isWaitingCustomer
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Language
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - name
+        - nativeName
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Language
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - name
+        - nativeName
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Language
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - name
+        - nativeName
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Language
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - isoCode
+        - name
+        - nativeName
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Location
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - regionId
+        - accountId
+        - serviceResourceId
+        - name
+        - description
+        - isInventoryLocation
+        - isMobile
+        - drivingDirections
+        - latitude
+        - longitude
+        - geoCodeAccuracy
+        - address
+        - postalCode
+        - isActive
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Location
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - regionId
+        - accountId
+        - serviceResourceId
+        - name
+        - description
+        - isInventoryLocation
+        - isMobile
+        - drivingDirections
+        - latitude
+        - longitude
+        - geoCodeAccuracy
+        - address
+        - postalCode
+        - isActive
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Location
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - regionId
+        - accountId
+        - serviceResourceId
+        - name
+        - description
+        - isInventoryLocation
+        - isMobile
+        - drivingDirections
+        - latitude
+        - longitude
+        - geoCodeAccuracy
+        - address
+        - postalCode
+        - isActive
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Location
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - regionId
+        - accountId
+        - serviceResourceId
+        - name
+        - description
+        - isInventoryLocation
+        - isMobile
+        - drivingDirections
+        - latitude
+        - longitude
+        - geoCodeAccuracy
+        - address
+        - postalCode
+        - isActive
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: OfficialLanguage
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - countryIsoCode
+        - languageIsoCode
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: OfficialLanguage
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - countryIsoCode
+        - languageIsoCode
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: OfficialLanguage
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - countryIsoCode
+        - languageIsoCode
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: OfficialLanguage
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - countryIsoCode
+        - languageIsoCode
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Organization
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+        - baseCurrencyIsoCode
+        - exchangeRateSourceId
+        - priceModifierId
+        - countryIsoCode
+        - languageIsoCode
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Organization
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+        - baseCurrencyIsoCode
+        - exchangeRateSourceId
+        - priceModifierId
+        - countryIsoCode
+        - languageIsoCode
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Organization
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+        - baseCurrencyIsoCode
+        - exchangeRateSourceId
+        - priceModifierId
+        - countryIsoCode
+        - languageIsoCode
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Organization
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+        - baseCurrencyIsoCode
+        - exchangeRateSourceId
+        - priceModifierId
+        - countryIsoCode
+        - languageIsoCode
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: PriceModifier
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+        - parameters
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: PriceModifier
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - createdAt
+        - name
+        - parameters
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: PriceModifier
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+        - parameters
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: PriceModifier
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - createdAt
+        - name
+        - parameters
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: PriceModifierName
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: PriceModifierName
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: PriceModifierName
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: PriceModifierName
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Product
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - deletedAt
+        - isService
+        - productCode
+        - supplierProductCode
+        - productFamilyId
+        - name
+        - defaultPrice
+        - currencyIsoCode
+        - taxRate
+        - externalId
+        - description
+        - isActive
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Product
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - deletedAt
+        - isService
+        - productCode
+        - supplierProductCode
+        - productFamilyId
+        - name
+        - defaultPrice
+        - currencyIsoCode
+        - taxRate
+        - externalId
+        - description
+        - isActive
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Product
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - deletedAt
+        - isService
+        - productCode
+        - supplierProductCode
+        - productFamilyId
+        - name
+        - defaultPrice
+        - currencyIsoCode
+        - taxRate
+        - externalId
+        - description
+        - isActive
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Product
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - deletedAt
+        - isService
+        - productCode
+        - supplierProductCode
+        - productFamilyId
+        - name
+        - defaultPrice
+        - currencyIsoCode
+        - taxRate
+        - externalId
+        - description
+        - isActive
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: ProductFamily
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - parentId
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: ProductFamily
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - parentId
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: ProductFamily
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - parentId
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: ProductFamily
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - parentId
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: Region
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - countryIsoCode
+        - parentId
+        - type
+        - name
+        - localId
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: Region
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - countryIsoCode
+        - parentId
+        - type
+        - name
+        - localId
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: Region
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - countryIsoCode
+        - parentId
+        - type
+        - name
+        - localId
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: Region
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - countryIsoCode
+        - parentId
+        - type
+        - name
+        - localId
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: ServiceAppointment
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - serviceResourceId
+        - statusId
+        - workOrderId
+        - assetId
+        - contactId
+        - subject
+        - description
+        - arrivalWindowStartTime
+        - arrivalWindowEndTime
+        - scheduledStart
+        - scheduledEnd
+        - earliestStartPermitted
+        - dueAt
+        - startedAt
+        - endedAt
+        - startLatitude
+        - startLongitude
+        - endLatitude
+        - endLongitude
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: ServiceAppointment
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - serviceResourceId
+        - statusId
+        - workOrderId
+        - assetId
+        - contactId
+        - subject
+        - description
+        - arrivalWindowStartTime
+        - arrivalWindowEndTime
+        - scheduledStart
+        - scheduledEnd
+        - earliestStartPermitted
+        - dueAt
+        - startedAt
+        - endedAt
+        - startLatitude
+        - startLongitude
+        - endLatitude
+        - endLongitude
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: ServiceAppointment
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - serviceResourceId
+        - statusId
+        - workOrderId
+        - assetId
+        - contactId
+        - subject
+        - description
+        - arrivalWindowStartTime
+        - arrivalWindowEndTime
+        - scheduledStart
+        - scheduledEnd
+        - earliestStartPermitted
+        - dueAt
+        - startedAt
+        - endedAt
+        - startLatitude
+        - startLongitude
+        - endLatitude
+        - endLongitude
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: ServiceAppointment
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - serviceResourceId
+        - statusId
+        - workOrderId
+        - assetId
+        - contactId
+        - subject
+        - description
+        - arrivalWindowStartTime
+        - arrivalWindowEndTime
+        - scheduledStart
+        - scheduledEnd
+        - earliestStartPermitted
+        - dueAt
+        - startedAt
+        - endedAt
+        - startLatitude
+        - startLongitude
+        - endLatitude
+        - endLongitude
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: ServiceResource
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: ServiceResource
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: ServiceResource
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: ServiceResource
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - name
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: User
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - serviceResourceId
+        - isServiceResourceAdmin
+        - name
+        - surname
+        - mail
+        - description
+        - mobileCountry
+        - mobileArea
+        - mobileNumber
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: User
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - serviceResourceId
+        - isServiceResourceAdmin
+        - name
+        - surname
+        - mail
+        - description
+        - mobileCountry
+        - mobileArea
+        - mobileNumber
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: User
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - serviceResourceId
+        - isServiceResourceAdmin
+        - name
+        - surname
+        - mail
+        - description
+        - mobileCountry
+        - mobileArea
+        - mobileNumber
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: User
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - auth0Id
+        - serviceResourceId
+        - isServiceResourceAdmin
+        - name
+        - surname
+        - mail
+        - description
+        - mobileCountry
+        - mobileArea
+        - mobileNumber
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: WorkOrder
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - completedAt
+        - serviceResourceId
+        - accountId
+        - contactId
+        - locationId
+        - assetId
+        - statusId
+        - currencyIsoCode
+        - subject
+        - priceModifierId
+        - priceModifications
+        - subTotal
+        - grossTotal
+        - total
+        - description
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: WorkOrder
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - completedAt
+        - serviceResourceId
+        - accountId
+        - contactId
+        - locationId
+        - assetId
+        - statusId
+        - currencyIsoCode
+        - subject
+        - priceModifierId
+        - priceModifications
+        - subTotal
+        - grossTotal
+        - total
+        - description
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: WorkOrder
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - completedAt
+        - serviceResourceId
+        - accountId
+        - contactId
+        - locationId
+        - assetId
+        - statusId
+        - currencyIsoCode
+        - subject
+        - priceModifierId
+        - priceModifications
+        - subTotal
+        - grossTotal
+        - total
+        - description
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: WorkOrder
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - completedAt
+        - serviceResourceId
+        - accountId
+        - contactId
+        - locationId
+        - assetId
+        - statusId
+        - currencyIsoCode
+        - subject
+        - priceModifierId
+        - priceModifications
+        - subTotal
+        - grossTotal
+        - total
+        - description
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_insert_permission
+  role: tenant-admin
+  table:
+    name: WorkOrderLineItem
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - id
+        - workOrderId
+        - serviceAppointmentId
+        - lineItemNumber
+        - productId
+        - productSerialNumber
+        - assetId
+        - name
+        - listPrice
+        - unitPrice
+        - quantity
+        - priceModifications
+        - subTotal
+        - grossTotal
+        - total
+        - description
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_select_permission
+  role: tenant-admin
+  table:
+    name: WorkOrderLineItem
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - workOrderId
+        - serviceAppointmentId
+        - lineItemNumber
+        - productId
+        - productSerialNumber
+        - assetId
+        - name
+        - listPrice
+        - unitPrice
+        - quantity
+        - priceModifications
+        - subTotal
+        - grossTotal
+        - total
+        - description
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_update_permission
+  role: tenant-admin
+  table:
+    name: WorkOrderLineItem
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - workOrderId
+        - serviceAppointmentId
+        - lineItemNumber
+        - productId
+        - productSerialNumber
+        - assetId
+        - name
+        - listPrice
+        - unitPrice
+        - quantity
+        - priceModifications
+        - subTotal
+        - grossTotal
+        - total
+        - description
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
+- type: create_delete_permission
+  role: tenant-admin
+  table:
+    name: WorkOrderLineItem
+    schema: public
+  args:
+    permission:
+      allow_aggregations: false
+      columns:
+        - organizationId
+        - id
+        - createdAt
+        - updatedAt
+        - workOrderId
+        - serviceAppointmentId
+        - lineItemNumber
+        - productId
+        - productSerialNumber
+        - assetId
+        - name
+        - listPrice
+        - unitPrice
+        - quantity
+        - priceModifications
+        - subTotal
+        - grossTotal
+        - total
+        - description
+      computed_fields: []
+      filter:
+        organization_id:
+          _eq: X-Hasura-Organization-Id
+      limit: 10000
