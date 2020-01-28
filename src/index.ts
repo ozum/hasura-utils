@@ -15,11 +15,25 @@ import {
   getColumnNames,
   writeMigration,
 } from "./helper";
-import { trackTable, untrackTable, createPermission, dropPermission } from "./migration-commands";
+import {
+  trackTable,
+  untrackTable,
+  createInsertPermission,
+  createSelectPermission,
+  createUpdatePermission,
+  createDeletePermission,
+  dropPermission,
+} from "./migration-commands";
 
 require("dotenv").config();
 
 const OPERATIONS: Operation[] = ["insert", "select", "update", "delete"];
+const PERMISSION_FUNCTION = {
+  insert: createInsertPermission,
+  select: createSelectPermission,
+  update: createUpdatePermission,
+  delete: createDeletePermission,
+};
 
 interface HasuraTableName {
   schema: string;
@@ -132,20 +146,22 @@ export default class HasuraUtils {
     filter,
     dir,
     excludeColumns = { insert: [], select: [], update: [], delete: [] },
+    set,
     role,
   }: {
     filter?: TableFilterFunction;
     dir: string;
-    excludeColumns?: Record<Operation, string[]>;
+    excludeColumns?: Partial<Record<Operation, string[]>>;
+    set?: Record<string, Partial<Record<Operation, any>>>;
     role: string;
   }): Promise<string | object> {
     const tables = this.getFilteredTables(filter);
     const up = tables.flatMap(table =>
       OPERATIONS.map(operation =>
-        createPermission(table.name, table.schema.name, {
-          operation,
+        PERMISSION_FUNCTION[operation](table.name, table.schema.name, {
           role,
           columns: getColumnNames(table, excludeColumns[operation] || []),
+          set: set && set[table.name] ? set[table.name][operation] : undefined,
         })
       )
     );

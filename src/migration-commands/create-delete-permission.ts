@@ -1,0 +1,20 @@
+export default function createDeletePermission(
+  table: string,
+  schema = "public",
+  {
+    role,
+    filter = { organization_id: { _eq: "X-Hasura-Organization-Id" } },
+  }: {
+    role: string;
+    filter?: object;
+  }
+): object {
+  return {
+    type: "create_delete_permission",
+    args: {
+      role,
+      table: { name: table, schema },
+      permission: { filter },
+    },
+  };
+}
