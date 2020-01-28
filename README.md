@@ -21,7 +21,10 @@
     - [`Const` OPERATIONS](#const-operations)
   - [Functions](#functions)
     - [_untrackTable](#_untracktable)
-    - [createPermission](#createpermission)
+    - [createDeletePermission](#createdeletepermission)
+    - [createInsertPermission](#createinsertpermission)
+    - [createSelectPermission](#createselectpermission)
+    - [createUpdatePermission](#createupdatepermission)
     - [dropPermission](#droppermission)
     - [formatAndWriteData](#formatandwritedata)
     - [getColumnNames](#getcolumnnames)
@@ -31,6 +34,13 @@
     - [getTableName](#gettablename)
     - [trackTable](#tracktable)
     - [writeMigration](#writemigration)
+  - [Object literals](#object-literals)
+    - [`Const` PERMISSION_FUNCTION](#const-permission_function)
+    - [▪ **PERMISSION_FUNCTION**: *object*](#%E2%96%AA-permission_function-object)
+    - [delete](#delete)
+    - [insert](#insert)
+    - [select](#select)
+    - [update](#update)
 - [Classes](#classes)
 - [Class: HasuraUtils](#class-hasurautils)
   - [Hierarchy](#hierarchy)
@@ -92,7 +102,7 @@
 
 Ƭ **NameFunction**: *function*
 
-*Defined in [index.ts:34](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L34)*
+*Defined in [index.ts:48](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L48)*
 
 #### Type declaration:
 
@@ -111,7 +121,7 @@ ___
 
 Ƭ **Operation**: *"insert" | "select" | "update" | "delete"*
 
-*Defined in [index.ts:35](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L35)*
+*Defined in [index.ts:49](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L49)*
 
 ___
 
@@ -119,7 +129,7 @@ ___
 
 Ƭ **TableFilterFunction**: *function*
 
-*Defined in [index.ts:36](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L36)*
+*Defined in [index.ts:50](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L50)*
 
 #### Type declaration:
 
@@ -137,7 +147,7 @@ Name | Type |
 
 • **OPERATIONS**: *[Operation](#operation)[]* = ["insert", "select", "update", "delete"]
 
-*Defined in [index.ts:22](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L22)*
+*Defined in [index.ts:30](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L30)*
 
 ## Functions
 
@@ -145,7 +155,7 @@ Name | Type |
 
 ▸ **_untrackTable**(`table`: string, `schema`: string): *object*
 
-*Defined in [migration-commands/untrack-table.ts:1](https://github.com/ozum/hasura-utils/blob/23801d6/src/migration-commands/untrack-table.ts#L1)*
+*Defined in [migration-commands/untrack-table.ts:1](https://github.com/ozum/hasura-utils/blob/5ef064e/src/migration-commands/untrack-table.ts#L1)*
 
 **Parameters:**
 
@@ -168,11 +178,59 @@ Name | Type | Default |
 
 ___
 
-###  createPermission
+###  createDeletePermission
 
-▸ **createPermission**(`table`: string, `schema`: string, `__namedParameters`: object): *object*
+▸ **createDeletePermission**(`table`: string, `schema`: string, `__namedParameters`: object): *object*
 
-*Defined in [migration-commands/create-permission.ts:1](https://github.com/ozum/hasura-utils/blob/23801d6/src/migration-commands/create-permission.ts#L1)*
+*Defined in [migration-commands/create-delete-permission.ts:1](https://github.com/ozum/hasura-utils/blob/5ef064e/src/migration-commands/create-delete-permission.ts#L1)*
+
+**Parameters:**
+
+▪ **table**: *string*
+
+▪`Default value`  **schema**: *string*= "public"
+
+▪ **__namedParameters**: *object*
+
+Name | Type |
+------ | ------ |
+`role` | string |
+`filter` | object |
+
+**Returns:** *object*
+
+___
+
+###  createInsertPermission
+
+▸ **createInsertPermission**(`table`: string, `schema`: string, `__namedParameters`: object): *object*
+
+*Defined in [migration-commands/create-insert-permission.ts:1](https://github.com/ozum/hasura-utils/blob/5ef064e/src/migration-commands/create-insert-permission.ts#L1)*
+
+**Parameters:**
+
+▪ **table**: *string*
+
+▪`Default value`  **schema**: *string*= "public"
+
+▪ **__namedParameters**: *object*
+
+Name | Type | Default |
+------ | ------ | ------ |
+`columns` | string[] | [] |
+`filter` | undefined &#124; object | - |
+`role` | string | - |
+`set` | object | - |
+
+**Returns:** *object*
+
+___
+
+###  createSelectPermission
+
+▸ **createSelectPermission**(`table`: string, `schema`: string, `__namedParameters`: object): *object*
+
+*Defined in [migration-commands/create-select-permission.ts:1](https://github.com/ozum/hasura-utils/blob/5ef064e/src/migration-commands/create-select-permission.ts#L1)*
 
 **Parameters:**
 
@@ -188,8 +246,32 @@ Name | Type | Default |
 `columns` | string[] | [] |
 `computedFields` | string[] | [] |
 `limit` | number | 10000 |
-`operation` | "insert" &#124; "select" &#124; "update" &#124; "delete" | - |
 `role` | string | - |
+`filter` | object | - |
+
+**Returns:** *object*
+
+___
+
+###  createUpdatePermission
+
+▸ **createUpdatePermission**(`table`: string, `schema`: string, `__namedParameters`: object): *object*
+
+*Defined in [migration-commands/create-update-permission.ts:3](https://github.com/ozum/hasura-utils/blob/5ef064e/src/migration-commands/create-update-permission.ts#L3)*
+
+**Parameters:**
+
+▪ **table**: *string*
+
+▪`Default value`  **schema**: *string*= "public"
+
+▪ **__namedParameters**: *object*
+
+Name | Type | Default |
+------ | ------ | ------ |
+`columns` | string[] | [] |
+`role` | string | - |
+`set` | undefined &#124; object | - |
 `filter` | object | - |
 
 **Returns:** *object*
@@ -200,7 +282,7 @@ ___
 
 ▸ **dropPermission**(`table`: string, `schema`: string, `__namedParameters`: object): *object*
 
-*Defined in [migration-commands/drop-permission.ts:3](https://github.com/ozum/hasura-utils/blob/23801d6/src/migration-commands/drop-permission.ts#L3)*
+*Defined in [migration-commands/drop-permission.ts:3](https://github.com/ozum/hasura-utils/blob/5ef064e/src/migration-commands/drop-permission.ts#L3)*
 
 **Parameters:**
 
@@ -223,7 +305,7 @@ ___
 
 ▸ **formatAndWriteData**<**T**>(`data`: T, `format?`: "json" | "yaml", `file?`: undefined | string): *Promise‹string | T›*
 
-*Defined in [helper.ts:8](https://github.com/ozum/hasura-utils/blob/23801d6/src/helper.ts#L8)*
+*Defined in [helper.ts:8](https://github.com/ozum/hasura-utils/blob/5ef064e/src/helper.ts#L8)*
 
 **Type parameters:**
 
@@ -245,7 +327,7 @@ ___
 
 ▸ **getColumnNames**(`table`: Table, `exclude`: string[]): *string[]*
 
-*Defined in [helper.ts:93](https://github.com/ozum/hasura-utils/blob/23801d6/src/helper.ts#L93)*
+*Defined in [helper.ts:93](https://github.com/ozum/hasura-utils/blob/5ef064e/src/helper.ts#L93)*
 
 **Parameters:**
 
@@ -262,7 +344,7 @@ ___
 
 ▸ **getHasuraCacheRedirectMapSource**(`map`: Record‹string, string›): *string*
 
-*Defined in [helper.ts:49](https://github.com/ozum/hasura-utils/blob/23801d6/src/helper.ts#L49)*
+*Defined in [helper.ts:49](https://github.com/ozum/hasura-utils/blob/5ef064e/src/helper.ts#L49)*
 
 **Parameters:**
 
@@ -278,7 +360,7 @@ ___
 
 ▸ **getMultipleObjectName**(`table`: string, `schema?`: undefined | string): *string*
 
-*Defined in [helper.ts:45](https://github.com/ozum/hasura-utils/blob/23801d6/src/helper.ts#L45)*
+*Defined in [helper.ts:45](https://github.com/ozum/hasura-utils/blob/5ef064e/src/helper.ts#L45)*
 
 Returns multiple object name used by Hasura for given PostgreSQL table.
 
@@ -299,7 +381,7 @@ ___
 
 ▸ **getSingleObjectName**(`table`: string, `schema?`: undefined | string): *string*
 
-*Defined in [helper.ts:35](https://github.com/ozum/hasura-utils/blob/23801d6/src/helper.ts#L35)*
+*Defined in [helper.ts:35](https://github.com/ozum/hasura-utils/blob/5ef064e/src/helper.ts#L35)*
 
 Returns single object name used by Hasura for given PostgreSQL table.
 
@@ -320,7 +402,7 @@ ___
 
 ▸ **getTableName**(`table`: string, `schema?`: undefined | string): *string*
 
-*Defined in [helper.ts:25](https://github.com/ozum/hasura-utils/blob/23801d6/src/helper.ts#L25)*
+*Defined in [helper.ts:25](https://github.com/ozum/hasura-utils/blob/5ef064e/src/helper.ts#L25)*
 
 **Parameters:**
 
@@ -337,7 +419,7 @@ ___
 
 ▸ **trackTable**(`table`: string, `schema`: string, `options`: object): *object*
 
-*Defined in [migration-commands/track-table.ts:4](https://github.com/ozum/hasura-utils/blob/23801d6/src/migration-commands/track-table.ts#L4)*
+*Defined in [migration-commands/track-table.ts:4](https://github.com/ozum/hasura-utils/blob/5ef064e/src/migration-commands/track-table.ts#L4)*
 
 **Parameters:**
 
@@ -389,7 +471,7 @@ ___
 
 ▸ **writeMigration**(`dir`: string, `up`: object, `down`: object): *Promise‹any›*
 
-*Defined in [helper.ts:21](https://github.com/ozum/hasura-utils/blob/23801d6/src/helper.ts#L21)*
+*Defined in [helper.ts:21](https://github.com/ozum/hasura-utils/blob/5ef064e/src/helper.ts#L21)*
 
 **Parameters:**
 
@@ -400,6 +482,38 @@ Name | Type |
 `down` | object |
 
 **Returns:** *Promise‹any›*
+
+## Object literals
+
+### `Const` PERMISSION_FUNCTION
+
+### ▪ **PERMISSION_FUNCTION**: *object*
+
+*Defined in [index.ts:31](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L31)*
+
+###  delete
+
+• **delete**: *[createDeletePermission](#createdeletepermission)* = createDeletePermission
+
+*Defined in [index.ts:35](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L35)*
+
+###  insert
+
+• **insert**: *[createInsertPermission](#createinsertpermission)* = createInsertPermission
+
+*Defined in [index.ts:32](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L32)*
+
+###  select
+
+• **select**: *[createSelectPermission](#createselectpermission)* = createSelectPermission
+
+*Defined in [index.ts:33](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L33)*
+
+###  update
+
+• **update**: *[createUpdatePermission](#createupdatepermission)* = createUpdatePermission
+
+*Defined in [index.ts:34](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L34)*
 
 # Classes
 
@@ -420,7 +534,7 @@ Name | Type |
 
 ▸ **getMetaData**(): *Promise‹[MetaData](#interfacesmetadatamd)›*
 
-*Defined in [index.ts:114](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L114)*
+*Defined in [index.ts:128](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L128)*
 
 **Returns:** *Promise‹[MetaData](#interfacesmetadatamd)›*
 
@@ -430,7 +544,7 @@ ___
 
 ▸ **getTrackedTables**(): *Promise‹Table[]›*
 
-*Defined in [index.ts:126](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L126)*
+*Defined in [index.ts:140](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L140)*
 
 **Returns:** *Promise‹Table[]›*
 
@@ -440,7 +554,7 @@ ___
 
 ▸ **writeHasureCacheRedirectMap**(`file`: string, `__namedParameters`: object): *Promise‹string›*
 
-*Defined in [index.ts:190](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L190)*
+*Defined in [index.ts:206](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L206)*
 
 Creates typescript file for mapping (`single object name` -> `table name`) to be used with cache redirects.
 
@@ -488,7 +602,7 @@ ___
 
 ▸ **writeMigrationsCreatePermissions**(`__namedParameters`: object): *Promise‹string | object›*
 
-*Defined in [index.ts:131](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L131)*
+*Defined in [index.ts:145](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L145)*
 
 **Parameters:**
 
@@ -499,6 +613,7 @@ Name | Type |
 `dir` | string |
 `filter` | undefined &#124; function |
 `role` | string |
+`set` | undefined &#124; object |
 `excludeColumns` | object |
 
 **Returns:** *Promise‹string | object›*
@@ -509,7 +624,7 @@ ___
 
 ▸ **writeMigrationsTrackTable**(`__namedParameters`: object): *Promise‹any›*
 
-*Defined in [index.ts:156](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L156)*
+*Defined in [index.ts:172](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L172)*
 
 **Parameters:**
 
@@ -528,7 +643,7 @@ ___
 
 ▸ **create**(`__namedParameters`: object): *Promise‹[HasuraUtils](#classeshasurautilsmd)›*
 
-*Defined in [index.ts:78](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L78)*
+*Defined in [index.ts:92](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L92)*
 
 **Parameters:**
 
@@ -567,7 +682,7 @@ Name | Type | Default |
 
 • **name**: *string*
 
-*Defined in [index.ts:26](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L26)*
+*Defined in [index.ts:40](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L40)*
 
 ___
 
@@ -575,7 +690,7 @@ ___
 
 • **schema**: *string*
 
-*Defined in [index.ts:25](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L25)*
+*Defined in [index.ts:39](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L39)*
 
 
 <a name="interfacesmetadatamd"></a>
@@ -594,7 +709,7 @@ ___
 
 • **tables**: *Array‹object›*
 
-*Defined in [index.ts:31](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L31)*
+*Defined in [index.ts:45](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L45)*
 
 ___
 
@@ -602,7 +717,7 @@ ___
 
 • **version**: *number*
 
-*Defined in [index.ts:30](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L30)*
+*Defined in [index.ts:44](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L44)*
 
 
 <a name="interfacesoptionsmd"></a>
@@ -621,7 +736,7 @@ ___
 
 • **adminSecret**? : *undefined | string*
 
-*Defined in [index.ts:40](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L40)*
+*Defined in [index.ts:54](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L54)*
 
 ___
 
@@ -629,7 +744,7 @@ ___
 
 • **database**: *string*
 
-*Defined in [index.ts:41](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L41)*
+*Defined in [index.ts:55](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L55)*
 
 ___
 
@@ -637,7 +752,7 @@ ___
 
 • **includeSchemas**? : *string[]*
 
-*Defined in [index.ts:44](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L44)*
+*Defined in [index.ts:58](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L58)*
 
 ___
 
@@ -645,7 +760,7 @@ ___
 
 • **multipleObjectNameFunction**? : *[NameFunction](#namefunction)*
 
-*Defined in [index.ts:46](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L46)*
+*Defined in [index.ts:60](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L60)*
 
 ___
 
@@ -653,7 +768,7 @@ ___
 
 • **password**: *string*
 
-*Defined in [index.ts:43](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L43)*
+*Defined in [index.ts:57](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L57)*
 
 ___
 
@@ -661,7 +776,7 @@ ___
 
 • **singleObjectNameFunction**? : *[NameFunction](#namefunction)*
 
-*Defined in [index.ts:45](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L45)*
+*Defined in [index.ts:59](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L59)*
 
 ___
 
@@ -669,7 +784,7 @@ ___
 
 • **tableNameFunction**? : *[NameFunction](#namefunction)*
 
-*Defined in [index.ts:47](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L47)*
+*Defined in [index.ts:61](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L61)*
 
 ___
 
@@ -677,7 +792,7 @@ ___
 
 • **url**? : *undefined | string*
 
-*Defined in [index.ts:39](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L39)*
+*Defined in [index.ts:53](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L53)*
 
 ___
 
@@ -685,5 +800,5 @@ ___
 
 • **user**: *string*
 
-*Defined in [index.ts:42](https://github.com/ozum/hasura-utils/blob/23801d6/src/index.ts#L42)*
+*Defined in [index.ts:56](https://github.com/ozum/hasura-utils/blob/5ef064e/src/index.ts#L56)*
 
